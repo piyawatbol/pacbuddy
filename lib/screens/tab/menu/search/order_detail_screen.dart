@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:packbuddy/widget/appbar/back_appbar.dart';
+import 'package:packbuddy/widget/color/colors.dart';
 import 'package:packbuddy/widget/image/big_image.dart';
 import 'package:packbuddy/widget/text/auto_text.dart';
 
@@ -60,7 +61,7 @@ class OrderDetailScreen extends StatelessWidget {
               AutoText(
                 "รายละเอียดการขาย",
                 fontSize: 14,
-                color: Colors.blue,
+                color: secondColor,
                 fontWeight: FontWeight.bold,
               ),
               AutoText(
@@ -108,7 +109,7 @@ class OrderDetailScreen extends StatelessWidget {
         children: [
           AutoText(
             "สินค้า",
-            color: Colors.blue,
+            color: secondColor,
             fontWeight: FontWeight.bold,
           ),
           SizedBox(
@@ -175,7 +176,7 @@ class OrderDetailScreen extends StatelessWidget {
               AutoText("ยอดชำระเงิน"),
               AutoText(
                 "200 ฿",
-                color: Colors.green,
+                color: primaryColor,
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               )
@@ -210,7 +211,7 @@ class OrderDetailScreen extends StatelessWidget {
           AutoText(
             "ข้อมูลการจัดส่งสินค้า",
             fontSize: 14,
-            color: Colors.blue,
+            color: secondColor,
             fontWeight: FontWeight.bold,
           ),
           SizedBox(height: 15),
@@ -250,7 +251,7 @@ class OrderDetailScreen extends StatelessWidget {
           AutoText(
             "การชำระเงิน",
             fontSize: 14,
-            color: Colors.blue,
+            color: secondColor,
             fontWeight: FontWeight.bold,
           ),
           SizedBox(height: 15),

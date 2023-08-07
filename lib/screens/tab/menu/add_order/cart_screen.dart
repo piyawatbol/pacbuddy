@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:packbuddy/widget/appbar/back_appbar.dart';
+import 'package:packbuddy/widget/color/colors.dart';
 import 'package:packbuddy/widget/text/auto_text.dart';
 
 class CartScreen extends StatelessWidget {
@@ -9,7 +11,6 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: BackAppBar("ตะกร้า"),
       body: Container(
         width: size.width,
@@ -18,26 +19,6 @@ class CartScreen extends StatelessWidget {
           child: Column(
             children: [
               buildListCart(context),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    AutoText(
-                      "รวม",
-                      color: Colors.green,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    AutoText(
-                      "1000 ฿",
-                      color: Colors.green,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    )
-                  ],
-                ),
-              )
             ],
           ),
         ),
@@ -49,24 +30,24 @@ class CartScreen extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return SizedBox(
       child: ListView.builder(
-        padding: EdgeInsets.zero,
-        itemCount: 5,
+        padding: EdgeInsets.only(top: 5, bottom: 30),
+        itemCount: 20,
         shrinkWrap: true,
         physics: NeverScrollableScrollPhysics(),
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            margin: EdgeInsets.symmetric(vertical: 5, horizontal: 25),
+            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
             width: size.width,
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(5),
+              borderRadius: BorderRadius.circular(10),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(0.1),
-                  offset: Offset(0, 0),
-                  blurRadius: 1,
-                  spreadRadius: 0.5,
+                  offset: Offset(2, 2),
+                  blurRadius: 10,
+                  spreadRadius: 1,
                 ),
               ],
             ),
@@ -79,17 +60,27 @@ class CartScreen extends StatelessWidget {
                       width: 60,
                       height: 60,
                       decoration: BoxDecoration(
-                          color: Colors.grey.shade200,
-                          borderRadius: BorderRadius.circular(5)),
+                        color: Colors.grey.withOpacity(0.07),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Center(
+                          child: SvgPicture.asset(
+                        'assets/icons/image.svg',
+                        colorFilter: ColorFilter.mode(
+                            Colors.grey.shade300, BlendMode.srcIn),
+                      )),
                     ),
                     SizedBox(width: 10),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        AutoText("ปากกาลูกลื่น", fontSize: 12),
+                        AutoText(
+                          "ปากกาลูกลื่น",
+                          fontSize: 14,
+                        ),
                         AutoText(
                           "10 ฿",
-                          fontSize: 12,
+                          fontSize: 14,
                           color: Colors.grey.shade600,
                         ),
                       ],
@@ -98,37 +89,31 @@ class CartScreen extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    CircleAvatar(
-                      radius: 10,
-                      backgroundColor: Colors.grey.shade100,
-                      child: Icon(
-                        Icons.remove,
-                        color: Colors.black,
-                        size: 12,
-                      ),
+                    Icon(
+                      Icons.remove_circle,
+                      color: secondColor.withOpacity(0.3),
+                      size: 20,
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 8),
                       child: AutoText("2"),
                     ),
-                    CircleAvatar(
-                        radius: 10,
-                        backgroundColor: Colors.grey.shade100,
-                        child: Icon(
-                          Icons.add,
-                          color: Colors.black,
-                          size: 14,
-                        ))
+                    Icon(
+                      Icons.add_circle_sharp,
+                      color: secondColor,
+                      size: 20,
+                    )
                   ],
                 ),
-                AutoText(
-                  "100 ฿",
-                  fontSize: 12,
+                Padding(
+                  padding: EdgeInsets.only(right: 15),
+                  child: AutoText(
+                    "100 ฿",
+                    fontSize: 16,
+                    color: primaryColor,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
-                Icon(
-                  Icons.delete_forever_sharp,
-                  color: Colors.red,
-                )
               ],
             ),
           );

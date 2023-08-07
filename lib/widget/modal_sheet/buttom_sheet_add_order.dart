@@ -4,7 +4,7 @@ import 'package:packbuddy/controller/order/add_order_controller.dart';
 import 'package:packbuddy/widget/color/colors.dart';
 import 'package:packbuddy/widget/text/auto_text.dart';
 
-void showCustomBottomSheetAddorder(BuildContext context) {
+void showFilterProduct(BuildContext context) {
   showModalBottomSheet(
     context: context,
     builder: (BuildContext context) {
@@ -32,7 +32,7 @@ class CustomBottomSheetContent extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return ListTile(
                     onTap: () {
-                      controller.onSelect(controller.filterList[index]);
+                      controller.onFilterProduct(controller.filterList[index]);
                     },
                     trailing:
                         controller.filterSelect == controller.filterList[index]

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:packbuddy/controller/order/add_order_controller.dart';
 import 'package:packbuddy/widget/appbar/back_appbar.dart';
 import 'package:packbuddy/widget/button/cart_button.dart';
 import 'package:packbuddy/widget/button/custom_button.dart';
-import 'package:packbuddy/widget/list/product_grid_list.dart';
+import 'package:packbuddy/widget/color/colors.dart';
+import 'package:packbuddy/widget/list/product_add_grid_list.dart';
 import 'package:packbuddy/widget/modal_sheet/buttom_sheet_add_order.dart';
 
 class AddOrderScreen extends StatelessWidget {
@@ -18,30 +20,32 @@ class AddOrderScreen extends StatelessWidget {
         iconButton: CartButton(),
         iconButton2: GestureDetector(
           onTap: () {
-            showCustomBottomSheetAddorder(context);
+            showFilterProduct(context);
           },
-          child: Icon(Icons.filter_alt_outlined),
+          child: Icon(Icons.filter_alt_outlined, color: secondColor),
         ),
       ),
       body: Container(
-        width: size.width,
-        height: size.height,
-        child: Stack(
-          children: [
-            SingleChildScrollView(
-              child: Column(
+          width: size.width,
+          height: size.height,
+          child: GetBuilder<AddOrderController>(
+            init: AddOrderController(),
+            builder: (controller) {
+              return Stack(
                 children: [
-                  ProductGridList(),
-                  SizedBox(
-                    height: size.height * 0.12,
-                  )
+                  SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        ProductAddGridList(),
+                        SizedBox(height: size.height * 0.1)
+                      ],
+                    ),
+                  ),
+                  buildBottom()
                 ],
-              ),
-            ),
-            buildBottom()
-          ],
-        ),
-      ),
+              );
+            },
+          )),
     );
   }
 

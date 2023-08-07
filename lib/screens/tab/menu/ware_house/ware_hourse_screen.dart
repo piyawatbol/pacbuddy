@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:packbuddy/controller/warehouse_controller.dart';
 import 'package:packbuddy/widget/appbar/back_appbar.dart';
-import 'package:packbuddy/widget/color/colors.dart';
 import 'package:packbuddy/widget/text/auto_text.dart';
 
 class WareHouseScreen extends StatelessWidget {
@@ -15,7 +14,6 @@ class WareHouseScreen extends StatelessWidget {
       init: WareHouseController(),
       builder: (controller) {
         return Scaffold(
-          backgroundColor: Colors.white,
           appBar: buildAppBar(controller),
           body: Container(
             width: size.width,
@@ -27,10 +25,21 @@ class WareHouseScreen extends StatelessWidget {
                     itemCount: 5,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
-                        padding: EdgeInsets.symmetric(vertical: 5),
-                        margin: EdgeInsets.symmetric(vertical: 5),
-                        color:
-                            index % 2 == 0 ? Colors.white : Colors.grey.shade50,
+                        margin:
+                            EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                        padding: EdgeInsets.symmetric(vertical: 10),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.1),
+                              offset: Offset(2, 2),
+                              blurRadius: 10,
+                              spreadRadius: 1,
+                            ),
+                          ],
+                        ),
                         child: ListTile(
                           title: AutoText("ชื่อคลัง : คลัง2"),
                           subtitle: Column(
@@ -56,21 +65,6 @@ class WareHouseScreen extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
-          ),
-          floatingActionButton: SizedBox(
-            width: size.width * 0.4,
-            height: 50,
-            child: FloatingActionButton.extended(
-              onPressed: () {
-                Get.toNamed('/ware_house_space');
-              },
-              backgroundColor: primaryColor,
-              label: AutoText(
-                'พื้นที่คลัง',
-                color: Colors.white,
-              ),
-              icon: Icon(Icons.warehouse),
             ),
           ),
         );

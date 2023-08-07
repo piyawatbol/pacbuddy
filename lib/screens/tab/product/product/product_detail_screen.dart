@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:packbuddy/widget/appbar/back_appbar.dart';
 import 'package:packbuddy/widget/button/custom_button.dart';
+import 'package:packbuddy/widget/color/colors.dart';
 import 'package:packbuddy/widget/text/auto_text.dart';
 
 class ProductDetailScreen extends StatelessWidget {
@@ -11,7 +13,6 @@ class ProductDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: BackAppBar("รายละเอียดสินค้า"),
       body: Container(
         width: size.width,
@@ -46,6 +47,14 @@ class ProductDetailScreen extends StatelessWidget {
                         color: Colors.grey.shade50,
                         borderRadius: BorderRadius.circular(5),
                       ),
+                      child: Center(
+                          child: SvgPicture.asset(
+                        'assets/icons/image.svg',
+                        width: 50,
+                        height: 50,
+                        colorFilter: ColorFilter.mode(
+                            Colors.grey.shade300, BlendMode.srcIn),
+                      )),
                     ),
                   ],
                 ),
@@ -76,7 +85,7 @@ class ProductDetailScreen extends StatelessWidget {
                         AutoText(
                           "รายละเอียดสินค้า",
                           fontSize: 14,
-                          color: Colors.blue,
+                          color: secondColor,
                           fontWeight: FontWeight.bold,
                         ),
                         AutoText(

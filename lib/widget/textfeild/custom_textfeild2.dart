@@ -4,8 +4,11 @@ import 'package:packbuddy/widget/text/auto_text.dart';
 
 class CustomTextFeild2 extends StatelessWidget {
   final String? title;
+  final TextEditingController? controller;
+  final Function(String)? onChange;
+  final TextInputType? keyboardTyppe;
 
-  const CustomTextFeild2({required this.title});
+  const CustomTextFeild2({required this.title, this.controller, this.onChange,this.keyboardTyppe});
 
   @override
   Widget build(BuildContext context) {
@@ -19,24 +22,27 @@ class CustomTextFeild2 extends StatelessWidget {
             fontSize: 14,
             fontWeight: FontWeight.w500,
           ),
-          SizedBox(height: 5),
+          SizedBox(height: 8),
           TextField(
+            keyboardType: keyboardTyppe,
+            controller: controller,
+            onChanged: onChange,
             style: GoogleFonts.kanit(),
             cursorColor: Colors.black,
-            cursorHeight: 20,
+            cursorHeight: 23,
             decoration: InputDecoration(
-              fillColor: Colors.grey.withOpacity(0.1),
+              fillColor: Colors.white,
               contentPadding: EdgeInsets.only(left: 15),
               filled: true,
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(color: Colors.grey.shade200, width: 1.2),
+                borderSide: BorderSide(color: Colors.grey.shade100, width: 2),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide(
-                  color: Colors.black.withOpacity(0.3),
-                  width: 1,
+                  color: Colors.grey.shade400,
+                  width: 2,
                 ),
               ),
             ),

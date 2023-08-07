@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:packbuddy/widget/appbar/back_appbar.dart';
 import 'package:packbuddy/widget/button/custom_button.dart';
-import 'package:packbuddy/widget/list/product_grid_list.dart';
+import 'package:packbuddy/widget/list/product_add_grid_list.dart';
 
 class ChooseProductPromotionScreen extends StatelessWidget {
   const ChooseProductPromotionScreen({super.key});
@@ -11,14 +11,22 @@ class ChooseProductPromotionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: BackAppBar("เลือกสินค้า"),
       body: Container(
         width: size.width,
         height: size.height,
         child: Stack(
           children: [
-            SingleChildScrollView(child: ProductGridList()),
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  ProductAddGridList(),
+                  SizedBox(
+                    height: size.height * 0.1,
+                  )
+                ],
+              ),
+            ),
             buildBottom(),
           ],
         ),

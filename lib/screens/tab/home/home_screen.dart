@@ -263,7 +263,6 @@ class HomeScreen extends StatelessWidget {
       child: DropdownButton<String>(
         value: controller.selectedValue.value,
         borderRadius: BorderRadius.circular(10),
-        style: TextStyle(fontSize: 30),
         onChanged: (newValue) {
           controller.onSelectDropDown(newValue);
         },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:packbuddy/widget/appbar/back_appbar.dart';
 import 'package:packbuddy/widget/button/custom_button.dart';
@@ -15,7 +16,6 @@ class AddPromotionScreen extends StatelessWidget {
         FocusScope.of(context).requestFocus(FocusNode());
       },
       child: Scaffold(
-        backgroundColor: Colors.white,
         appBar: BackAppBar(
           "เพิ่มโปรโมชั่น",
         ),
@@ -23,7 +23,7 @@ class AddPromotionScreen extends StatelessWidget {
           width: size.width,
           height: size.height,
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15),
+            padding: EdgeInsets.symmetric(horizontal: 25),
             child: Column(
               children: [
                 Container(
@@ -34,6 +34,17 @@ class AddPromotionScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(5),
                       color: Colors.grey.shade100,
                       border: Border.all(color: Colors.grey.shade200)),
+                  child: Center(
+                    child: SvgPicture.asset(
+                      'assets/icons/image.svg',
+                      width: 50,
+                      height: 50,
+                      colorFilter: ColorFilter.mode(
+                        Colors.grey.shade300,
+                        BlendMode.srcIn,
+                      ),
+                    ),
+                  ),
                 ),
                 SizedBox(height: 20),
                 CustomTextFeild2(title: "ชื่อกลุ่มสินค้า"),

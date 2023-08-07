@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:packbuddy/controller/warehouse_controller.dart';
 import 'package:packbuddy/widget/appbar/back_appbar.dart';
+import 'package:packbuddy/widget/color/colors.dart';
 import 'package:packbuddy/widget/modal_sheet/button_sheeet_search.dart';
 import 'package:packbuddy/widget/text/auto_text.dart';
 import 'package:packbuddy/widget/textfeild/custom_textfeild.dart';
@@ -49,7 +50,7 @@ class AddWareHouseSpaceScreen extends StatelessWidget {
                             AutoText(
                               "รายละเอียด",
                               fontSize: 14,
-                              color: Colors.blue,
+                              color: secondColor,
                               fontWeight: FontWeight.bold,
                             ),
                             SizedBox(height: 15),

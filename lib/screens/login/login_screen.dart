@@ -61,10 +61,36 @@ class LoginScreen extends StatelessWidget {
                             },
                           ),
                         ),
-                        AutoText(
-                          "-------------  or login with  --------------",
-                          color: secondColor,
-                          fontSize: 16,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Flexible(
+                                child: Container(
+                                  margin: EdgeInsets.only(top: 5),
+                                  height: 1,
+                                  color: Colors.grey.shade400,
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 12),
+                                child: AutoText(
+                                  "or ",
+                                  color: Colors.grey.shade400,
+                                  fontSize: 18,
+                                ),
+                              ),
+                              Flexible(
+                                child: Container(
+                                  margin: EdgeInsets.only(top: 5),
+                                  height: 1,
+                                  color: Colors.grey.shade400,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                         buildSocial(),
                         Row(

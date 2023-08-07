@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:packbuddy/widget/color/colors.dart';
 import 'package:packbuddy/widget/text/auto_text.dart';
 
 class CartButton extends StatelessWidget {
@@ -17,7 +18,10 @@ class CartButton extends StatelessWidget {
           alignment: Alignment.center,
           clipBehavior: Clip.none,
           children: [
-            Icon(Icons.shopping_cart_rounded),
+            Icon(
+              Icons.shopping_cart_rounded,
+              color: secondColor,
+            ),
             Positioned(
               bottom: 7,
               right: -5,

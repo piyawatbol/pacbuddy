@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
 import 'package:packbuddy/widget/color/colors.dart';
+import 'package:packbuddy/widget/modal_sheet/add_cart.dart';
 import 'package:packbuddy/widget/text/auto_text.dart';
 
-class ProductGridList extends StatelessWidget {
-  const ProductGridList({super.key});
+class ProductAddGridList extends StatelessWidget {
+  const ProductAddGridList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class ProductGridList extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () {
-              Get.toNamed('/product_detail');
+              addCart(context);
             },
             child: Container(
               decoration: BoxDecoration(
@@ -44,52 +44,26 @@ class ProductGridList extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Flexible(
-                      child: Stack(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.grey.withOpacity(0.07),
-                            ),
-                            child: Center(
-                              child: SvgPicture.asset(
-                                'assets/icons/image.svg',
-                                width: 50,
-                                height: 50,
-                                colorFilter: ColorFilter.mode(
-                                    Colors.grey.shade300, BlendMode.srcIn),
-                              ),
-                            ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.grey.withOpacity(0.07),
+                        ),
+                        child: Center(
+                          child: SvgPicture.asset(
+                            'assets/icons/image.svg',
+                            width: 50,
+                            height: 50,
+                            colorFilter: ColorFilter.mode(
+                                Colors.grey.shade300, BlendMode.srcIn),
                           ),
-                          Positioned(
-                            top: 20,
-                            right: 0,
-                            child: Container(
-                              width: 70,
-                              height: 20,
-                              decoration: BoxDecoration(
-                                color: primaryColor,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  bottomLeft: Radius.circular(10),
-                                ),
-                              ),
-                              child: Center(
-                                child: AutoText(
-                                  "ใช้งาน",
-                                  color: Colors.white,
-                                  fontSize: 12,
-                                ),
-                              ),
-                            ),
-                          )
-                        ],
+                        ),
                       ),
                     ),
                     Padding(
                       padding:
                           const EdgeInsets.only(left: 12, top: 5, bottom: 5),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -98,6 +72,7 @@ class ProductGridList extends StatelessWidget {
                                 "ปากกาลูกลื่น",
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
+                                color: secondColor,
                               ),
                               AutoText(
                                 "100 ฿",
@@ -107,18 +82,14 @@ class ProductGridList extends StatelessWidget {
                               ),
                             ],
                           ),
-                          // TextButton(
-                          //   onPressed: () {},
-                          //   style: TextButton.styleFrom(
-                          //     foregroundColor: Colors.white,
-                          //     backgroundColor: primaryColor,
-                          //     padding: EdgeInsets.symmetric(
-                          //         horizontal: 22, vertical: 8),
-                          //     shape: RoundedRectangleBorder(
-                          //         borderRadius: BorderRadius.circular(8)),
-                          //   ),
-                          //   child: Text('เลือก'),
-                          // ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 20),
+                            child: Icon(
+                              Icons.add_circle_outlined,
+                              color: primaryColor,
+                              size: 28,
+                            ),
+                          )
                         ],
                       ),
                     )

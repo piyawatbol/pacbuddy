@@ -1,9 +1,9 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:packbuddy/widget/appbar/back_appbar.dart';
 import 'package:packbuddy/widget/button/custom_button.dart';
+import 'package:packbuddy/widget/color/colors.dart';
 import 'package:packbuddy/widget/text/auto_text.dart';
 
 class ConfirmOrderScreen extends StatelessWidget {
@@ -13,7 +13,6 @@ class ConfirmOrderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: BackAppBar("ยืนยันการสร้างออเดอร์"),
       body: Container(
         width: size.width,
@@ -26,18 +25,16 @@ class ConfirmOrderScreen extends StatelessWidget {
               buildReviver(context),
               buildShipment(context),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.symmetric(vertical: 20),
                 child: CustomButton(
                   "สร้างออเดอร์",
                   onTap: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return buildAlertDialog(context);
-                      },
-                    );
+                    Get.offAllNamed('/tab');
                   },
-                  width: size.width * 0.5,
+                  width: size.width * 0.85,
+                  height: 50,
+                  colorButton: primaryColor,
+                  fontSize: 14,
                 ),
               ),
               SizedBox(height: 30),
@@ -51,7 +48,7 @@ class ConfirmOrderScreen extends StatelessWidget {
   Widget buildProduct(context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.all(10),
+      margin: EdgeInsets.only(right: 25, left: 25, bottom: 10, top: 20),
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       width: size.width,
       decoration: BoxDecoration(
@@ -71,7 +68,7 @@ class ConfirmOrderScreen extends StatelessWidget {
         children: [
           AutoText(
             "สินค้า",
-            color: Colors.blue,
+            color: secondColor,
             fontWeight: FontWeight.bold,
           ),
           SizedBox(
@@ -137,7 +134,7 @@ class ConfirmOrderScreen extends StatelessWidget {
   Widget buiildCustomerDetail(context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.only(right: 10, left: 10, bottom: 10),
+      margin: EdgeInsets.only(right: 25, left: 25, bottom: 10),
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       width: size.width,
       decoration: BoxDecoration(
@@ -157,7 +154,7 @@ class ConfirmOrderScreen extends StatelessWidget {
         children: [
           AutoText(
             "รายละเอียดลูกค้า",
-            color: Colors.blue,
+            color: secondColor,
             fontWeight: FontWeight.bold,
           ),
           SizedBox(
@@ -187,7 +184,7 @@ class ConfirmOrderScreen extends StatelessWidget {
   Widget buildReviver(context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.only(right: 10, left: 10, bottom: 10),
+      margin: EdgeInsets.only(right: 25, left: 25, bottom: 10),
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       width: size.width,
       decoration: BoxDecoration(
@@ -207,7 +204,7 @@ class ConfirmOrderScreen extends StatelessWidget {
         children: [
           AutoText(
             "ผู้รับสินค้า",
-            color: Colors.blue,
+            color: secondColor,
             fontWeight: FontWeight.bold,
           ),
           SizedBox(
@@ -228,7 +225,7 @@ class ConfirmOrderScreen extends StatelessWidget {
   Widget buildShipment(context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.only(right: 10, left: 10, bottom: 10),
+      margin: EdgeInsets.only(right: 25, left: 25, bottom: 10),
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       width: size.width,
       decoration: BoxDecoration(
@@ -248,7 +245,7 @@ class ConfirmOrderScreen extends StatelessWidget {
         children: [
           AutoText(
             "รายละเอียดการขนส่ง",
-            color: Colors.blue,
+            color: secondColor,
             fontWeight: FontWeight.bold,
           ),
           SizedBox(
@@ -309,4 +306,7 @@ class ConfirmOrderScreen extends StatelessWidget {
       ],
     );
   }
+
 }
+
+

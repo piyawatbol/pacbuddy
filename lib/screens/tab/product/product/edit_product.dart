@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:packbuddy/widget/appbar/back_appbar.dart';
 import 'package:packbuddy/widget/text/auto_text.dart';
-import 'package:packbuddy/widget/textfeild/custom_textfeild.dart';
+import 'package:packbuddy/widget/textfeild/custom_textfeild2.dart';
 
 class EditProductScreen extends StatelessWidget {
   const EditProductScreen({super.key});
@@ -10,56 +11,44 @@ class EditProductScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: BackAppBar("แก้ไขสินค้า"),
       body: Container(
         width: size.width,
         height: size.height,
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                margin: EdgeInsets.all(20),
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                width: size.width,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(5),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      offset: Offset(1, 2),
-                      blurRadius: 10,
-                      spreadRadius: 1,
-                    ),
-                  ],
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 25),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  margin: EdgeInsets.all(5),
+                  height: size.height * 0.32,
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade100,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Center(
+                      child: SvgPicture.asset(
+                    'assets/icons/image.svg',
+                    width: 50,
+                    height: 50,
+                    colorFilter:
+                        ColorFilter.mode(Colors.grey.shade300, BlendMode.srcIn),
+                  )),
                 ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 11),
-                      height: size.height * 0.3,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade100,
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                    ),
-                    SizedBox(height: 10),
-                    CustomTextFeild(title: "รหัสสินค้า"),
-                    CustomTextFeild(title: "ชื่อสินค้า"),
-                    CustomTextFeild(title: "ประเภทสินค้า"),
-                    CustomTextFeild(title: "ราคา"),
-                    CustomTextFeild(title: "จำนวนสินค้า"),
-                    CustomTextFeild(title: "Owner"),
-                    CustomTextFeild(title: "สถานะสินค้า"),
-                    CustomTextFeild(title: "อัพเดทล่าสุด"),
-                  ],
-                ),
-              ),
-              SizedBox(height: 30)
-            ],
+                SizedBox(height: 10),
+                CustomTextFeild2(title: "รหัสสินค้า"),
+                CustomTextFeild2(title: "ชื่อสินค้า"),
+                CustomTextFeild2(title: "ประเภทสินค้า"),
+                CustomTextFeild2(title: "ราคา"),
+                CustomTextFeild2(title: "จำนวนสินค้า"),
+                CustomTextFeild2(title: "Owner"),
+                CustomTextFeild2(title: "สถานะสินค้า"),
+                CustomTextFeild2(title: "อัพเดทล่าสุด"),
+                SizedBox(height: 30)
+              ],
+            ),
           ),
         ),
       ),

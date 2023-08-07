@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:packbuddy/widget/appbar/back_appbar.dart';
 import 'package:packbuddy/widget/button/custom_button.dart';
+import 'package:packbuddy/widget/color/colors.dart';
 import 'package:packbuddy/widget/text/auto_text.dart';
-import 'package:packbuddy/widget/textfeild/custom_textfeild.dart';
+import 'package:packbuddy/widget/textfeild/custom_textfeild2.dart';
 
 class ConfirmPromotionScreen extends StatelessWidget {
   const ConfirmPromotionScreen({super.key});
@@ -11,22 +13,30 @@ class ConfirmPromotionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: BackAppBar("ยืนยันการสร้างโปรโมชั่น"),
       body: Container(
         width: size.width,
         height: size.height,
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              buildinfo(context),
-              buildProduct(context),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 15),
-                child: CustomButton("สร้างโปรโมรชั่น", onTap: () {}),
-              ),
-              SizedBox(height: 10)
-            ],
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 25),
+            child: Column(
+              children: [
+                buildinfo(context),
+                buildProduct(context),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 25),
+                  child: CustomButton(
+                    "สร้างโปรโมรชั่น",
+                    onTap: () {},
+                    width: size.width,
+                    fontSize: 14,
+                    height: 50,
+                  ),
+                ),
+                SizedBox(height: 10)
+              ],
+            ),
           ),
         ),
       ),
@@ -36,7 +46,7 @@ class ConfirmPromotionScreen extends StatelessWidget {
   Widget buildinfo(context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.all(10),
+      margin: EdgeInsets.only(bottom: 20),
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       width: size.width,
       decoration: BoxDecoration(
@@ -57,18 +67,30 @@ class ConfirmPromotionScreen extends StatelessWidget {
           AutoText(
             "รายละเอียด",
             fontSize: 14,
-            color: Colors.blue,
+            color: secondColor,
             fontWeight: FontWeight.bold,
           ),
           Container(
-            margin: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+            margin: EdgeInsets.symmetric(vertical: 15),
             width: size.width,
             height: size.height * 0.3,
             decoration: BoxDecoration(
-                color: Colors.grey.shade100,
-                borderRadius: BorderRadius.circular(5)),
+              color: Colors.grey.shade100,
+              borderRadius: BorderRadius.circular(5),
+            ),
+            child: Center(
+              child: SvgPicture.asset(
+                'assets/icons/image.svg',
+                width: 50,
+                height: 50,
+                colorFilter: ColorFilter.mode(
+                  Colors.grey.shade300,
+                  BlendMode.srcIn,
+                ),
+              ),
+            ),
           ),
-          CustomTextFeild(title: "ชื่อโปรโมรชั่น")
+          CustomTextFeild2(title: "ชื่อโปรโมรชั่น")
         ],
       ),
     );
@@ -77,8 +99,7 @@ class ConfirmPromotionScreen extends StatelessWidget {
   Widget buildProduct(context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.all(10),
-      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
       width: size.width,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -98,7 +119,7 @@ class ConfirmPromotionScreen extends StatelessWidget {
           AutoText(
             "สินค้า",
             fontSize: 14,
-            color: Colors.blue,
+            color: secondColor,
             fontWeight: FontWeight.bold,
           ),
           SizedBox(height: 15),

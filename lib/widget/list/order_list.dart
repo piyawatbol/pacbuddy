@@ -10,7 +10,7 @@ class OrderList extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return Expanded(
       child: ListView.builder(
-        itemCount: 3,
+        itemCount: 4,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () {
@@ -34,7 +34,7 @@ class OrderList extends StatelessWidget {
               child: Stack(
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 18),
+                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 18),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -71,7 +71,7 @@ class OrderList extends StatelessWidget {
                                   "150 ฿",
                                   color: Colors.black,
                                   fontWeight: FontWeight.w600,
-                                  fontSize: 14,
+                                  fontSize: 20,
                                 ),
                               ],
                             )
@@ -84,8 +84,8 @@ class OrderList extends StatelessWidget {
                     top: 0,
                     right: 0,
                     child: Container(
-                      width: size.width * 0.4,
-                      height: 28,
+                      width: size.width * 0.22,
+                      height: 22,
                       decoration: BoxDecoration(
                         color: index == 1 ? Colors.red : Colors.green,
                         borderRadius: BorderRadius.only(

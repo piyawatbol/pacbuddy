@@ -64,118 +64,123 @@ class ApproveOrderScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 18),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          AutoText(
-                            "USE202306-00006",
-                            fontSize: 14,
-                          ),
-                          Row(
-                            children: [
-                              AutoText(
-                                "14/6/2566 18:57:04",
-                                color: Colors.grey,
-                                fontSize: 14,
-                              ),
-                              SizedBox(width: 5),
-                              Icon(
-                                Icons.arrow_forward_ios_rounded,
-                                color: Colors.grey.shade400,
-                                size: 18,
-                              )
-                            ],
-                          )
-                        ],
-                      ),
-                      SizedBox(height: 10),
-                      Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Get.to(
-                                () => BigImage(
-                                  imageUrl: "assets/images/slip.jpg",
+                GestureDetector(
+                  onTap: () {
+                    Get.toNamed('/order_detail');
+                  },
+                  child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 18),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            AutoText(
+                              "USE202306-00006",
+                              fontSize: 14,
+                            ),
+                            Row(
+                              children: [
+                                AutoText(
+                                  "14/6/2566 18:57:04",
+                                  color: Colors.grey,
+                                  fontSize: 14,
                                 ),
-                                transition: Transition.native,
-                              );
-                            },
-                            child: Container(
-                              margin: EdgeInsets.only(right: 15),
-                              width: 70,
-                              height: 70,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: AssetImage("assets/images/slip.jpg"),
+                                SizedBox(width: 5),
+                                Icon(
+                                  Icons.arrow_forward_ios_rounded,
+                                  color: Colors.grey.shade400,
+                                  size: 18,
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                        SizedBox(height: 10),
+                        Row(
+                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                Get.to(
+                                  () => BigImage(
+                                    imageUrl: "assets/images/slip.jpg",
+                                  ),
+                                  transition: Transition.native,
+                                );
+                              },
+                              child: Container(
+                                margin: EdgeInsets.only(right: 15),
+                                width: 70,
+                                height: 70,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: AssetImage("assets/images/slip.jpg"),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Flexible(
-                            child: Container(
-                              width: double.infinity,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  AutoText(
-                                    "ชื่อสินค้า : betagen",
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                  Row(
-                                    children: [
-                                      AutoText("วิธีการชำระเงิน"),
-                                      Container(
-                                        margin: EdgeInsets.only(left: 10),
-                                        width: 40,
-                                        height: 18,
-                                        decoration: BoxDecoration(
-                                          color: primaryColor,
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                        ),
-                                        child: Center(
-                                          child: AutoText(
-                                            "โอน",
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
+                            Flexible(
+                              child: Container(
+                                width: double.infinity,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    AutoText(
+                                      "ชื่อสินค้า : betagen",
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                    Row(
+                                      children: [
+                                        AutoText("วิธีการชำระเงิน"),
+                                        Container(
+                                          margin: EdgeInsets.only(left: 10),
+                                          width: 40,
+                                          height: 18,
+                                          decoration: BoxDecoration(
+                                            color: primaryColor,
+                                            borderRadius:
+                                                BorderRadius.circular(5),
                                           ),
+                                          child: Center(
+                                            child: AutoText(
+                                              "โอน",
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        AutoText(
+                                          "จำนวน x3",
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w500,
                                         ),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      AutoText(
-                                        "จำนวน x3",
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                      AutoText(
-                                        "รวม 25 ฿",
-                                        color: primaryColor,
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ],
-                                  )
-                                ],
+                                        AutoText(
+                                          "รวม 25 ฿",
+                                          color: primaryColor,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
                               ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ],
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Container(
@@ -201,7 +206,7 @@ class ApproveOrderScreen extends StatelessWidget {
                               child: AutoText(
                                 "ปฎิเสธ",
                                 fontSize: 14,
-                                color: Colors.grey.shade700,
+                                color: Colors.grey.shade500,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -428,7 +433,10 @@ class ApproveOrderScreen extends StatelessWidget {
                   onTap: () {
                     Get.toNamed("/order_detail");
                   },
-                  child: AutoText("ดูรายละเอียดเพิ่มเติม", color: Colors.blue),
+                  child: AutoText(
+                    "ดูรายละเอียดเพิ่มเติม",
+                    color: secondColor,
+                  ),
                 ),
               ),
               Row(
